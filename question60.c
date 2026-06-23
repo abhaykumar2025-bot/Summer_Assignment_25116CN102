@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 int main() {
-    int a[10], n, i, temp;
+    int a[10], n, i, j = 0, temp;
 
     printf("Enter the value of n: ");
     scanf("%d", &n);
@@ -10,13 +10,15 @@ int main() {
     for(i = 0; i < n; i++) {
         scanf("%d", &a[i]);
     }
-    temp = a[0];
-    for(i = 0; i < n - 1; i++) {
-        a[i] = a[i + 1];
+    for(i = 0; i < n; i++) {
+        if(a[i] != 0) {
+            temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+            j++;
+        }
     }
-    a[n - 1] = temp;
-
-    printf("Array after left rotation: ");
+    printf("Array after moving zeros to the end: ");
     for(i = 0; i < n; i++) {
         printf("%d ", a[i]);
     }

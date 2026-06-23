@@ -10,13 +10,14 @@ int main() {
     for(i = 0; i < n; i++) {
         scanf("%d", &a[i]);
     }
-    temp = a[0];
-    for(i = 0; i < n - 1; i++) {
-        a[i] = a[i + 1];
-    }
-    a[n - 1] = temp;
+    temp = a[n - 1];
 
-    printf("Array after left rotation: ");
+    for(i = n - 1; i > 0; i--) {
+        a[i] = a[i - 1];
+    }
+    a[0] = temp;
+
+    printf("Array after right rotation: ");
     for(i = 0; i < n; i++) {
         printf("%d ", a[i]);
     }

@@ -1,27 +1,30 @@
 #include<stdio.h>
-void main(){
-    int i,n,a[10],largest,second;
-    
-    printf("Enter the value of n:");
-    scanf("%d",&n);
+int main() {
+    int i, n, a[10], start, end, temp;
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
 
-    printf("Enter the elements in the array:");
-    for(i=0;i<n;i++){
-        scanf("%d",&a[i]);
+    printf("Enter the elements: ");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
     }
 
-    largest = second=a[0];
+    start = 0;
+    end = n - 1;
 
-    for(i=1;i<n;i++){
-        if(a[i]>largest){
-            second = largest;
-            largest = a[i];
-        }
-        else if(a[i]>second && a[i] != largest){
-            second = a[i];
-        }
+    while(start < end) {
+        temp = a[start];
+        a[start] = a[end];
+        a[end] = temp;
+
+        start++;
+        end--;
     }
 
-    printf("Second largest element is:%d",second);
+    printf("Reversed array is: ");
+    for(i = 0; i < n; i++) {
+        printf("%d ", a[i]);
+    }
 
+    return 0;
 }
