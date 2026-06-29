@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    char ch[100];
+    int i = 0, vowels = 0, consonants = 0;
+
+    printf("Enter a string: ");
+    scanf("%s", ch);
+
+    while (ch[i]>0) {
+        if (ch[i] == 'a' || ch[i] == 'e' || ch[i] == 'i' ||
+            ch[i] == 'o' || ch[i] == 'u' ||
+            ch[i] == 'A' || ch[i] == 'E' || ch[i] == 'I' ||
+            ch[i] == 'O' || ch[i] == 'U') {
+            vowels++;
+        }
+        else {
+            consonants++;
+        }
+        i++;
+    }
+
+    printf("Vowels = %d\n", vowels);
+    printf("Consonants = %d\n", consonants);
+
+    return 0;
+}
